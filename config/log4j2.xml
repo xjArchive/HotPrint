@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error">
+  <Appenders>
+<!--     <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout>
+        <MarkerPatternSelector defaultPattern="%sn. %msg: Logger=%logger%n">
+          <PatternMatch key="CLASS" pattern="%sn. %msg: Class=%class%n"/>
+        </MarkerPatternSelector>
+      </PatternLayout>
+    </Console> -->
+  <File name="logfile" fileName="log/app.log" filePattern="logs/app-%d{MM-dd-yyyy}.log.txt" >
+      <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout>
+    </File>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="logfile" />
+    </Root>
+  </Loggers>
+</Configuration>

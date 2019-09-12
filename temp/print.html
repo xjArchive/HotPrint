@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>开始使用layui</title>
+  <link rel="stylesheet" href="./layui/css/layui.css">
+ 
+</head>
+<body>
+  <button  id="startPrintBtn">开始打印</button>
+<script src="./layui/layui.js"></script>
+<script>
+layui.use("jquery",function(){
+	var $ = layui.jquery;
+	var param = [];
+	param.push({size:16,text:"凌晨四点",align:"center"},
+			   {text:"歌名：想你的夜1"},
+			   {text:"歌名：想你的夜2"},
+			   {text:"歌名：想你的夜3"},
+			   {text:"歌名：想你的夜4"},
+			   {text:"歌名：想你的夜5"},
+			   {text:"歌名：想你的夜6"},
+			   {text:"歌名：想你的夜7"},
+			   {text:"歌名：想你的夜8"},
+			   {text:"歌名：想你的夜9"},
+			   {text:"歌名：想你的夜10"},
+			   {text:"歌名：想你的夜11"},
+			   {text:"歌名：想你的夜12"},
+			   {text:"备注：老哥，帮我点纸过来。"},
+			   {text:"时间："+Date.now(),size:8,align:"right"});
+	$("#startPrintBtn").click(function(){
+			$.ajax({
+					url:"http://localhost:8088/Print/doit.action",
+					type:"POST",
+					contentType:"application/json;charset=UTF-8",
+					data:JSON.stringify(param),
+					success:function(){}
+				});
+				 
+	});
+	
+});
+ 
+</script> 
+</body>
+</html>
